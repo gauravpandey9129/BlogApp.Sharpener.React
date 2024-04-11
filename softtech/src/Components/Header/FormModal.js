@@ -7,7 +7,7 @@ import { useBlogContext } from '../../ContextApi/Context';
 
 export default function FormModal( ) {
     
-    const {modalStatus,setModalStatus}=useBlogContext()
+    const {modalStatus,setModalStatus,blogs,setBlogs}=useBlogContext()
     const[imgUrl,setImgUrl]=useState('')
     const[title,setTitle]=useState('');
     const[description,setDescription]=useState('')
@@ -18,6 +18,16 @@ export default function FormModal( ) {
       setModalStatus(false);
     }
    
+    const handleOnAdd=()=>{
+      let blog={
+        id:Date.now(),
+        img: imgUrl,
+        title:title,  
+        decription:description, 
+      }
+      
+      setBlogs([...blogs,blog]);
+    }
 
 
 
@@ -69,7 +79,7 @@ export default function FormModal( ) {
               <Button variant="secondary" onClick={handleOnClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleOnClose}>
+              <Button variant="primary" onClick={handleOnAdd}>
                 Add
               </Button>
             </Modal.Footer>
