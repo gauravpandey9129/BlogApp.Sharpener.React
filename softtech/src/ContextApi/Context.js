@@ -9,6 +9,10 @@ export const BlogContextProvider=({children})=>{
  
     const [modalStatus,setModalStatus]=useState(false);
     const [blogs,setBlogs]=useState([])
+         
+          
+         
+
 
      
 
